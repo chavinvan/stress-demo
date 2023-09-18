@@ -115,8 +115,8 @@ with open(path,"r") as file:
     urlStress = json.load(file)  
 
   
-
-
+import os
+print(os.listdir('./'))
 
 
 
