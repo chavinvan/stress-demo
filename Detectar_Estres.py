@@ -24,12 +24,12 @@ from streamlit_echarts import st_echarts
 def calcula_estres(correo: str):
     
     clean_text=detect.preprocess(correo)
-    text_embs=detect.get_embedding(clean_text,st.session_state.embs)
+    text_embs=detect.get_embedding(clean_text,embs)
     
     
     keys=["original","prediction","prob"]
     #no funciona get proba
-    values=[correo,detect.get_pred(text_embs,st.session_state.modelo),detect.get_pred(text_embs,st.session_state.modelo)]
+    values=[correo,detect.get_pred(text_embs,modelo),detect.get_pred(text_embs,modelo)]
    
     # cargar el modelo y pasarele el texto
     st.session_state.datos =dict(zip(keys, values))
@@ -161,12 +161,16 @@ with c2:
 
 # Inicializacion de variables
 @st.cache_resource
-def load_model():
-    if not "modelo" in st.session_state:
-        st.session_state["modelo"] = pickle.load(open('model/svm_model.sav', 'rb'))
+def cache_load(args):
+    return args
+
+modelo= pickle.load(open('model/svm_model.sav', 'rb'))
+cache_load(modelo)
 
 
 
+embs = SentenceTransformer('all-mpnet-base-v2')
+cache_load(embs)
 
 
 if not "results_shown" in st.session_state:
@@ -175,11 +179,10 @@ if not "results_shown" in st.session_state:
 if not "datos" in st.session_state:
     st.session_state["datos"] = None
     
-load_model()
     
-if not "embs" in st.session_state:
-    st.session_state["embs"] = SentenceTransformer('all-mpnet-base-v2')
+
     
+
 
 
 #### Pantalla
