@@ -5,8 +5,7 @@ import pickle
 import streamlit as st
 
 import pandas as pd
-import numpy as np
-from PIL import Image
+
 import pandas as pd
 import stress_demo_utils as detect
 from sentence_transformers import SentenceTransformer

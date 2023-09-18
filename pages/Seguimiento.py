@@ -2,19 +2,12 @@
 
 
 import json
-import pickle
-import streamlit as st
-import requests
-import pandas as pd
-import numpy as np
-from PIL import Image
-import pandas as pd
-import stress_demo_utils as detect
-from sentence_transformers import SentenceTransformer
-from streamlit_elements import elements
-from streamlit_elements import dashboard
 
-from streamlit_elements import mui
+import streamlit as st
+
+import pandas as pd
+
+
 
 
 from streamlit_extras.colored_header import colored_header
@@ -132,22 +125,6 @@ with c2:
     
     
 
-
-
-# Inicializacion de variables
-
-if not "results_shown" in st.session_state:
-    st.session_state["results_shown"] = False
-    
-if not "datos" in st.session_state:
-    st.session_state["datos"] = None
-    
-if not "modelo" in st.session_state:
-    st.session_state["modelo"] = pickle.load(open('model/svm_model.sav', 'rb'))
-    
-if not "embs" in st.session_state:
-    st.session_state["embs"] = SentenceTransformer('all-mpnet-base-v2')
-    
 
 
 
