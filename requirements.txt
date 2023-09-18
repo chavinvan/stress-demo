@@ -4,3 +4,7 @@ contractions
 scikit-learn
 sentence_transformers
 syntok
+streamlit_extras.colored_header
+streamlit_extras
+streamlit_lottie
+streamlit_echarts
