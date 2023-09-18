@@ -98,7 +98,7 @@ ejemplos_dict = data.to_dict()
 
 ejemplos_key=list(ejemplos_dict['keys'].values())
 values=list(ejemplos_dict['values'].values())
-ejemplos_dict=dictionary = dict(zip(ejemplos_key, values))
+ejemplos_dict= dict(zip(ejemplos_key, values))
 
 
 

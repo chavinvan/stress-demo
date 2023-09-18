@@ -1,6 +1,6 @@
 #Librerias
 
-import csv
+
 import json
 import pickle
 import streamlit as st
@@ -29,15 +29,16 @@ from streamlit_lottie import st_lottie
 
  
     
-def print_result():
+def print_result(data):
+   
     
     option = {
     "xAxis": {
         "type": "category",
         "data": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
     },
-    "yAxis": {"type": "value"},
-    "series": [{"data": [10, 30, 10, 50, 20, 40, 80], "type": "line"}],
+    "yAxis": {"type": "value","max":100},
+    "series": [{"data": data, "type": "line"}],
     }
     
             
@@ -57,13 +58,25 @@ ejemplos_key=[]
 ejemplos_values=[]
 
 
-data = pd.read_csv('config/empleados.csv', sep=';', quoting=csv.QUOTE_ALL)
+data = pd.read_csv('config/empleados.csv', sep=';')
 
 ejemplos_dict = data.to_dict()
 
 ejemplos_key=list(ejemplos_dict['keys'].values())
 values=list(ejemplos_dict['values'].values())
-ejemplos_dict=dictionary = dict(zip(ejemplos_key, values))
+valuesStr = [str(x) for x in values]
+ejemplos_dict= dict(zip(ejemplos_key, valuesStr))
+
+
+
+
+#data temporal
+
+
+dict_Empleados=  json.load( open( "empleados_data/weekData.json" ) )
+
+
+
 
 
 #animated
@@ -179,7 +192,7 @@ colored_header(
 )
 
 with st.container():
-    print_result()
+    print_result(dict_Empleados[ejemplos_dict[option]])
     
 
 
