@@ -1,0 +1,6 @@
+pandas
+numpy
+contractions
+sklearn
+pickle
+sentence_transformers
