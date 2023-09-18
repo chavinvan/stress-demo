@@ -3,3 +3,4 @@ numpy
 contractions
 scikit-learn
 sentence_transformers
+syntok
