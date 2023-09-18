@@ -1,0 +1,4 @@
+.vscode
+.streamlit
+.devcontainer
+__pycache__

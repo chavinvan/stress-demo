@@ -163,7 +163,7 @@ with c2:
 
 
 if not "modelo" in st.session_state:
-        st.session_state["modelo"] = pickle.load(open('model/svm_model.sav', 'rb'))
+        st.session_state["modelo"] = pickle.load(open('model/lr_model.sav', 'rb'))
 
 if not "results_shown" in st.session_state:
     st.session_state["results_shown"] = False
