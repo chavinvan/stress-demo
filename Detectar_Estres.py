@@ -160,6 +160,14 @@ with c2:
 
 
 # Inicializacion de variables
+@st.cache_resource
+def load_model():
+    if not "modelo" in st.session_state:
+        st.session_state["modelo"] = pickle.load(open('model/svm_model.sav', 'rb'))
+
+
+
+
 
 if not "results_shown" in st.session_state:
     st.session_state["results_shown"] = False
@@ -167,13 +175,11 @@ if not "results_shown" in st.session_state:
 if not "datos" in st.session_state:
     st.session_state["datos"] = None
     
-if not "modelo" in st.session_state:
-    st.session_state["modelo"] = pickle.load(open('model/svm_model.sav', 'rb'))
+load_model()
     
 if not "embs" in st.session_state:
     st.session_state["embs"] = SentenceTransformer('all-mpnet-base-v2')
     
-
 
 
 #### Pantalla
