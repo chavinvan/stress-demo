@@ -46,10 +46,10 @@ def print_result():
         
         rc1, rc2 = st.columns([0.4,0.4])
 
-
+        isStress =st.session_state.datos['prediction']==0
         with rc1:
             
-            if st.session_state.datos['prediction']==0 :
+            if isStress :
                 st_lottie(urlCalm,
                     reverse=False,
                     height=400,
@@ -70,10 +70,14 @@ def print_result():
                     key='test'
                 )
         with rc2:
-            print(st.session_state.datos['prob'])
             add_vertical_space.add_vertical_space(5)
+            prob_both=st.session_state.datos['prob'][0]
+            if isStress:
+                prob_result=prob_both[0]
+            else:
+                prob_result=prob_both[1]  
             liquidfill_option = {
-                "series": [{"type": "liquidFill", "data": [0.7]}]
+                "series": [{"type": "liquidFill", "data": [prob_result]}]
             }
             st_echarts(liquidfill_option)
             
@@ -115,8 +119,7 @@ with open(path,"r") as file:
     urlStress = json.load(file)  
 
   
-import os
-print(os.listdir('./'))
+
 
 
 
