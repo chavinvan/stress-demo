@@ -29,7 +29,7 @@ def calcula_estres(correo: str):
     
     keys=["original","prediction","prob"]
     #no funciona get proba
-    values=[correo,detect.get_pred(text_embs,st.session_state.modelo),detect.get_pred(text_embs,st.session_state.modelo)]
+    values=[correo,detect.get_pred(text_embs,st.session_state.modelo),detect.get_prob(text_embs,st.session_state.modelo)]
    
     # cargar el modelo y pasarele el texto
     st.session_state.datos =dict(zip(keys, values))
@@ -196,7 +196,7 @@ with st.sidebar:
     option = st.selectbox(
     "Select Mail",
     (ejemplos_key))
-    areaText = st.text_area("EMail",ejemplos_dict[option],height=240)
+    areaText = st.text_area("Email",ejemplos_dict[option],height=240)
     
   
   

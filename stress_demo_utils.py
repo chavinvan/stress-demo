@@ -115,7 +115,7 @@ def get_embedding(text,model):
 
 def get_prob(text_embs,loaded_model):
     reshape = text_embs.reshape(1, -1)
-    return loaded_model.decision_function(reshape)
+    return loaded_model.predict_proba(reshape)
 
 def get_pred(text_embs,loaded_model):
     reshape = text_embs.reshape(1, -1)
