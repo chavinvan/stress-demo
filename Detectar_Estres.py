@@ -72,10 +72,8 @@ def print_result():
         with rc2:
             add_vertical_space.add_vertical_space(5)
             prob_both=st.session_state.datos['prob'][0]
-            if isStress:
-                prob_result=prob_both[0]
-            else:
-                prob_result=prob_both[1]  
+            # if isStress:
+            prob_result=prob_both[0] 
             liquidfill_option = {
                 "series": [{"type": "liquidFill", "data": [prob_result]}]
             }
