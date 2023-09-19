@@ -70,9 +70,10 @@ def print_result():
                     key='test'
                 )
         with rc2:
+            print(st.session_state.datos['prob'])
             add_vertical_space.add_vertical_space(5)
             liquidfill_option = {
-                "series": [{"type": "liquidFill", "data": st.session_state.datos['prob'][0]}]
+                "series": [{"type": "liquidFill", "data": [0.7]}]
             }
             st_echarts(liquidfill_option)
             
