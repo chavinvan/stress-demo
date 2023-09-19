@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
     git \
     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://lab.gsi.upm.es/jmartin/StressDetector.git .
+RUN git clone https://github.com/smunl/stress-demo .
 
 RUN pip install -r requirements.txt
 

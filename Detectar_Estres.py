@@ -72,7 +72,7 @@ def print_result():
         with rc2:
             add_vertical_space.add_vertical_space(5)
             liquidfill_option = {
-                "series": [{"type": "liquidFill", "data": [0.7]}]
+                "series": [{"type": "liquidFill", "data": st.session_state.datos['prob'][0]}]
             }
             st_echarts(liquidfill_option)
             
